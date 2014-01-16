@@ -1,4 +1,8 @@
 GameTableServer::Application.routes.draw do
+  resources :tables
+
+  resources :users
+
   root :to => 'assets#index'
   get "assets/index"
   # The priority is based upon order of creation: first created -> highest priority.
