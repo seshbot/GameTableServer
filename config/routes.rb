@@ -1,10 +1,13 @@
 GameTableServer::Application.routes.draw do
-  resources :api_keys
-
-  resources :users
+  # resources :api_keys
+  # resources :users
 
   root :to => 'assets#index'
   get "assets/index"
+
+  resources :users, except: [:new, :edit, :destroy]
+  post 'session' => 'session#create'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
