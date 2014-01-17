@@ -1,5 +1,5 @@
 GameTableServer::Application.routes.draw do
-  resources :tables
+  resources :api_keys
 
   resources :users
 

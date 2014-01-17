@@ -3,10 +3,12 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', group: :production
+
+gem 'sqlite3', group: [:development, :test]
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -49,3 +51,6 @@ end
 gem "active_model_serializers"
 gem "ember-rails", "~>0.14"
 gem "ember-source", "~>1.1"
+
+gem 'bcrypt-ruby', '~> 3.1.2' #, '~> 3.0.0' # for password encryption
+

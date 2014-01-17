@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  username: MyString
-  encrypted_password: MyString
-  salt: MyString
+joe:
+   name: Joe User
+   username: joe_user
+   email: joe_user@example.com
+   password_digest: "$2a$10$wJTPdvpGgzDvkXChrcPyqOQrFFawzGu89B1rZze/lVIcJKWiNeAqS" # 'secret'
 
-two:
-  name: MyString
-  username: MyString
-  encrypted_password: MyString
-  salt: MyString
+jane:
+   name: Jane User
+   username: jane_user
+   email: jane_user@example.com
+   password_digest: "$2a$10$wJTPdvpGgzDvkXChrcPyqOQrFFawzGu89B1rZze/lVIcJKWiNeAqS" # 'secret'
