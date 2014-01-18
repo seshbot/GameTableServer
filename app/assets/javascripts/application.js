@@ -12,14 +12,27 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery
+//= require jquery.cookie
 //= require handlebars
 //= require ember
 //= require ember-data
 //= require_self
 //= require game_table_server
+//= require auth
 
 // for more details see: http://emberjs.com/guides/application/
-GameTableServer = Ember.Application.create();
+GameTableServer = Ember.Application.create({
+   LOG_TRANSITIONS: true,  
+});
+Ember.LOG_BINDINGS = true;
+Ember.ENV.RAISE_ON_DEPRECATION = true;
+Ember.LOG_STACKTRACE_ON_DEPRECATION = true;
+
+//Ember.onerror = function(error) {
+  //Em.$.ajax('/error-notification', 'POST', {
+      //stack: error.stack,
+      //otherInformation: 'exception message'
+   //});                   
+//}
 
 //= require_tree .

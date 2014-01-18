@@ -54,3 +54,8 @@ gem "ember-source", "~>1.1"
 
 gem 'bcrypt-ruby', '~> 3.1.2' #, '~> 3.0.0' # for password encryption
 
+gem 'jquery-cookie-rails'     # for auth manager
+
+# gem "therubyracer"
+# gem 'twitter-bootstrap-rails'
+
