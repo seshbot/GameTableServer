@@ -56,6 +56,8 @@ gem 'bcrypt-ruby', '~> 3.1.2' #, '~> 3.0.0' # for password encryption
 
 gem 'jquery-cookie-rails'     # for auth manager
 
-# gem "therubyracer"
-# gem 'twitter-bootstrap-rails'
+# bootstrap related stuff (https://github.com/seyhunak/twitter-bootstrap-rails)
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
 
