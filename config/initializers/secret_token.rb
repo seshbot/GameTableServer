@@ -9,4 +9,8 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-GameTableServer::Application.config.secret_key_base = 'a443f9018b4c11bfd26d486827f38488c7fd5bbcaeda2062d48dce7792e17bccbdfcc40ebae92c19da6cb940f781e58a8f350e9a7032fa8ea4e88c4c78d7d83f'
+GameTableServer::Application.config.secret_key_base = if Rails.env.development? or Rails.env.test?
+      ('x' * 30) # meets minimum requirement of 30 chars long
+   else
+      ENV.fetch('SECRET_TOKEN')
+   end
