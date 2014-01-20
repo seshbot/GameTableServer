@@ -1,9 +1,7 @@
 // for more details see: http://emberjs.com/guides/models/defining-models/
 
-GameTableServer.ApiKey = DS.Model.extend({
-  user: DS.belongsTo('GameTableServer.User'),
-  accessToken: DS.attr('string'),
-  scope: DS.attr('string'),
-  expiredAt: DS.attr('date'),
-  createdAt: DS.attr('date')
+// Ember.Object instead of DS.Model because this will never persist to or query the server
+GameTableServer.ApiKey = Ember.Object.extend({
+  user: null,
+  accessToken: ''
 });
