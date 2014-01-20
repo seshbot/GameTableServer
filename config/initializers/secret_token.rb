@@ -9,8 +9,27 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-GameTableServer::Application.config.secret_key_base = if Rails.env.development? or Rails.env.test?
-      ('x' * 30) # meets minimum requirement of 30 chars long
-   else
-      ENV.fetch('SECRET_TOKEN')
-   end
+
+if ENV['SECRET_TOKEN'].present?
+     GameTableServer::Application.config.secret_token = ENV['SECRET_TOKEN']
+elsif %w(development test).include?(Rails.env) || ENV['RAILS_GROUPS'] == 'assets'
+   GameTableServer::Application.config.secret_token = ('x' * 30) # meets minimum requirement of 30 chars long
+elsif !GameTableServer::Application.config.secret_token
+   raise <<-ERROR
+
+   No secret token found - rails applications need this for security reasons.
+
+   If you are deploying via capistrano, please ensure that your `config/deploy.rb` contains
+   the new `errbit:setup_configs` and `errbit:symlink_configs` tasks from `config/deploy.example.rb`.
+   Next time you deploy, your secret token will be automatically generated.
+
+   If you are deploying to Heroku, please run the following command to set your secret token:
+   heroku config:add SECRET_TOKEN="$(bundle exec rake secret)"
+
+   If you are deploying in some other way, please run the following command to generate a new secret token,
+   and commit the new `config/initializers/__secret_token.rb`:
+
+   echo "GameTableServer::Application.config.secret_token = '$(bundle exec rake secret)'" > config/initializers/__secret_token.rb
+   ERROR
+end
+
