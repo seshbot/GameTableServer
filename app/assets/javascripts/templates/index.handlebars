@@ -1,3 +1,6 @@
 <div class="container">
-   Please log in to continue!
+   <h2>Welcome!</h2>
+   {{#unless isAuthenticated}}
+      <p>Please log in to continue</p>
+   {{/unless}}
 </div>
