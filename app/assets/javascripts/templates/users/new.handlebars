@@ -1,6 +1,9 @@
 <h2>Register</h2>
 
 <form {{action "createUser" on="submit"}}>
+   {{#if errorMessage}}
+      <div class="alert alert-error">{{errorMessage}}</div>
+   {{/if}}
    <div {{bind-attr class=":controls errors.name:error"}}>
       <label>Full Name</label>
       {{input type="text" value=name placeholder="Full Name"}}

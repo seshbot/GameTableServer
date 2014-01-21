@@ -3,5 +3,9 @@
 GameTableServer.SessionsNewRoute = Ember.Route.extend({
    model: function() {
       return Ember.Object.create();
-   }
+   }, 
+
+   setupController: function(controller, context) {
+      controller.reset();
+   },
 });
