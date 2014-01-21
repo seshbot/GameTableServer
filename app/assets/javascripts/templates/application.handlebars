@@ -4,8 +4,13 @@
          <a class="brand" href="#">Seshbot Application</a>
          <ul class="nav">
             <li>{{#link-to 'index'}}Home{{/link-to}}</li>
-            <li><a href="#">Register</a></li>
-            <li><a href="#">Login</a></li>
+            {{#if isAuthenticated}}
+               <li><a href="#">{{currentUser.name}}</a></li>
+               <li><a href="#" {{action 'logout'}}>Logout</a></li>
+            {{else}}
+               <li>{{#link-to 'users.new'}}New User{{/link-to}}</li>
+               <li>{{#link-to 'sessions.new'}}Login{{/link-to}}</li>
+            {{/if}}
          </ul>
       </div>
    </div>
