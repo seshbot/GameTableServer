@@ -5,7 +5,7 @@ GameTableServer::Application.routes.draw do
   root :to => 'assets#index'
   get "assets/index"
 
-  resources :users, except: [:new, :edit, :destroy]
+  resources :users, except: [:new, :edit]
   post 'session' => 'session#create'
 
   # The priority is based upon order of creation: first created -> highest priority.

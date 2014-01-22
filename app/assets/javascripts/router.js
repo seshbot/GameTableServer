@@ -2,5 +2,9 @@
 
 GameTableServer.Router.map(function() {
    this.route('sessions.new');
-   this.route('users.new');
+
+   this.resource('users', function(){
+   	this.resource('user', { path: '/:user_id'});
+   })
+	this.route('users.new');
 });

@@ -1,0 +1,13 @@
+<h1>Users</h1>
+
+<table class="table-striped table-condensed">
+<tr><th>Name</th><th></th></tr>
+{{#each user in controller}}
+	<tr>
+		<td>{{#link-to 'user' user}}{{user.name}}{{/link-to}}</td>
+		<td><a href='#'>edit</a> | <a {{action "removeUser" user}}>remove</a></td>
+	</tr>
+{{/each}}
+</table>
+
+{{outlet}}
