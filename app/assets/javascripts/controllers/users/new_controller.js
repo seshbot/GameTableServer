@@ -20,7 +20,7 @@ GameTableServer.UsersNewController = Ember.Controller.extend({
    actions: {
       createUser: function() {
          var router = this.get('target');
-         var data = this.getProperties('name', 'email', 'username', 'password', 'password_confirmation')
+         var data = this.getProperties('name', 'email', 'username', 'password', 'password_confirmation');
          var controller = this;
          var model = this.get('model');
 

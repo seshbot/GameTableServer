@@ -10,8 +10,13 @@
                   <i class="icon-cog"></i>
                   <b class="caret"></b>
                </a>
-               <ul class="dropdown-menu">
+               <ul class="dropdown-menu">               
                   <li><a href="#">Settings</a></li>
+                  {{#if currentUser.admin}}
+                     <li class="divider"></li>
+                     <li>{{#link-to 'users'}}Users{{/link-to}}</li>
+                     <li>{{#link-to 'users.new'}}New User{{/link-to}}</li>
+                  {{/if}}
                   <li class="divider"></li>
                   <li><a href="#" {{action 'logout'}}>Logout</a></li>
                </ul>

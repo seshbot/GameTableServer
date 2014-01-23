@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
    before_filter :ensure_authenticated_user, only: [:index, :show, :destroy]
+   before_filter :ensure_admin_user, only: [:index]
 
    respond_to :json
 

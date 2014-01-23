@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
      head :unauthorized unless current_user
   end
 
+  def ensure_admin_user
+     head :unauthorized unless current_user.admin?
+  end
+
   # Returns the active user associated with the access token if available
   def current_user
      api_key = ApiKey.active.where(access_token: token).first

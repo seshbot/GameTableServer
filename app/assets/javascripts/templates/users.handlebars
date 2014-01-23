@@ -1,13 +1,18 @@
-<h1>Users</h1>
 
-<table class="table-striped table-condensed">
-<tr><th>Name</th><th></th></tr>
-{{#each user in controller}}
-	<tr>
-		<td>{{#link-to 'user' user}}{{user.name}}{{/link-to}}</td>
-		<td><a href='#'>edit</a> | <a {{action "removeUser" user}}>remove</a></td>
-	</tr>
-{{/each}}
-</table>
-
-{{outlet}}
+<div class="row">
+	<div class="span4">
+		<ul class="nav nav-pills nav-stacked">
+		{{#each user in controller}}
+			{{#link-to 'user' user tagName="li" href=false}}<a {{bind-attr href="view.href"}}>
+				{{user.name}}
+				<span class="pull-right">
+					{{#if user.admin}}
+						<span class="label label-default">admin</span>&nbsp;
+					{{/if}}
+					<i class="icon-chevron-right"></i>
+				</span>
+			</a>{{/link-to}}
+		{{/each}}
+	</div>
+	<div class="span8">{{outlet}}</div>
+</div>
