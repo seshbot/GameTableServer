@@ -4,34 +4,44 @@
    {{#if errorMessage}}
       <div class="alert alert-error">{{errorMessage}}</div>
    {{/if}}
-   <div {{bind-attr class=":controls errors.name:error"}}>
+   <div {{bind-attr class=":control-group errors.name:error"}}>
+   <div class="controls">
       <label>Full Name</label>
       {{input type="text" value=name placeholder="Full Name"}}
-      <small class="below">{{errors.name}}</small>
+      <small class="below help-inline">{{errors.name}}</small>
+   </div>
    </div>
 
-   <div {{bind-attr class=":controls errors.email:error"}}>
+   <div {{bind-attr class=":control-group errors.email:error"}}>
+   <div class="controls">
       <label>Email Address</label>
       {{input type="email" value=email placeholder="Email Address"}}
-      <small class="below">{{errors.email}}</small>
+      <small class="below help-inline">{{errors.email}}</small>
+   </div>
    </div>
 
-   <div {{bind-attr class=":controls errors.username:error"}}>
+   <div {{bind-attr class=":control-group errors.username:error"}}>
+   <div class="controls">
       <label>Username</label>
       {{input type="text" value=username placeholder="Username"}}
-      <small class="below">{{errors.username}}</small>
+      <small class="below help-inline">{{errors.username}}</small>
+   </div>
    </div>
 
-   <div {{bind-attr class=":controls errors.password:error"}}>
+   <div {{bind-attr class=":control-group errors.password:error"}}>
+   <div class="controls">
       <label>Password</label>
       {{input type="password" value=password placeholder="Password"}}
-      <small class="below">{{errors.password}}</small>
+      <small class="below help-inline">{{errors.password}}</small>
+   </div>
    </div>
 
-   <div {{bind-attr class=":controls errors.password_confirmation:error"}}>
+   <div {{bind-attr class=":control-group errors.password_confirmation:error"}}>
+   <div class="controls">
       <label>Confirm Password</label>
       {{input type="password" value=password_confirmation placeholder="Confirm Password"}}
-      <small class="below">{{errors.password_confirmation}}</small>
+      <small class="below help-inline">{{errors.password_confirmation}}</small>
+   </div>
    </div>
 
    <br>
