@@ -22,12 +22,17 @@ GameTableServer.UsersNewController = Ember.Controller.extend({
          var router = this.get('target');
          var data = this.getProperties('name', 'email', 'username', 'password', 'password_confirmation')
          var controller = this;
+         var model = this.get('model');
 
          controller.set('errorMessage', '');
          controller.set('errors', {});
 
          $.post('/users', { user: data }, function(results) {
             GameTableServer.AuthManager.authenticate(results.api_key.access_token, results.api_key.user_id);
+            
+            // temp record no longer needed - auth manager retrieves user from server
+            model.deleteRecord(); 
+
             router.transitionTo('index');
          }).fail(function(jqxhr, textStatus, error ) {
             if (jqxhr.responseText) {
