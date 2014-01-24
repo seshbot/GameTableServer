@@ -1,6 +1,6 @@
 // for more details see: http://emberjs.com/guides/controllers/
 
-GameTableServer.UserController = Ember.Controller.extend({
+GameTableServer.UserController = Ember.ObjectController.extend({
 	needs: ['application', 'users'],
 
 	currentUser: Ember.computed.alias("controllers.application.currentUser"),

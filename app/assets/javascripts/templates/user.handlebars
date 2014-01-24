@@ -1,8 +1,8 @@
 
 <div class="panel panel-primary">
 	<div class="panel-heading">
-		<strong>User Details - {{model.name}}</strong>		
-			{{#if model.admin}}
+		<strong>User Details - {{name}}</strong>		
+			{{#if admin}}
 				<span class="label label-default pull-right">admin</span>
 			{{/if}}
 	</div>
@@ -12,19 +12,19 @@
 		  <div class="control-group">
 		    <label class="control-label" for="inputName">Name</label>
 		    <div class="controls">
-		    	{{input type="text" value=model.name name="inputName" disabled=true}}
+		    	{{input type="text" value=name name="inputName" disabled=true}}
 		    </div>
 		  </div>
 		  <div class="control-group">
 		    <label class="control-label" for="inputUsername">Username</label>
 		    <div class="controls">
-		    	{{input type="text" value=model.username name="inputUsername" disabled=true}}
+		    	{{input type="text" value=username name="inputUsername" disabled=true}}
 		    </div>
 		  </div>
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">Email</label>
 		    <div class="controls">
-		    	<a {{bind-attr href="userMailtoHref"}}>{{model.email}}</a>
+		    	<a {{bind-attr href="userMailtoHref"}}>{{email}}</a>
 		    </div>
 		  </div>
 		</form>
@@ -32,7 +32,7 @@
 	<div class="panel-footer">
 		<div class="btn-group pull-right">
 			{{#if userCanBeRemoved}}
-				<a class="pull-right btn btn-danger btn-mini" {{action "removeUser" model}}>remove</a>
+				<a class="pull-right btn btn-danger btn-mini" {{action "removeUser" this}}>remove</a>
 			{{else}}
 				<a class="pull-right btn btn-mini disabled">remove</a>
 			{{/if}}
